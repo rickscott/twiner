@@ -1,0 +1,73 @@
+twiner, n.  That which twists together or interweaves.
+
+BACKGROUND
+
+Twitter facilitates amazing multi-user conversations, but they can be
+very difficult to follow unless you happen to be playing along in
+real-time.  Things like threaded replies help somewhat, but the flow 
+of the conversation isn't back & forth between pairs of people -- it's
+more like a roundtable with several people all speaking to each other.  
+
+Given all of this, I find the easiest way to make sense of things
+is just to view all tweets of all participants, in time order,
+over the time they took part in the conversation.  Thus: twiner, a tool 
+that takes people's twitter streams and twists them together.
+
+USAGE
+
+This is a pretty quick-and-dirty tool, so a little legwork is required
+to use it.  Open up config.json; specify the users whose tweets you
+want to include, and from which tweet to which tweet.  Run the script;
+it will give you a very bare-bones HTML file on standard output,
+and terse status messages on standard error.
+
+The included config file functions as an example -- it captures a 
+few better-known folks in the Agile and Software Testing communities 
+having a conversation about the evolution of software development.
+Output is in example-output.html. 
+
+
+
+CAVEATS & KNOWN ISSUES
+
+This is pre-alpha code.  None of the requisite things that you
+need to have a reliable piece of software have been done.
+
+There's no error handling.  If you run into an error condition
+you'll just have to run the whole script again.
+
+There's no user interface to speak of.  The method of specifying what
+to fetch in a JSON file isn't particularly friendly.  The script also
+doesn't pick up retweets and doesn't have an option to do so.
+
+There's no sanity checking; it doesn't even check to see if the 
+start_tweet and end_tweet IDs are in the right order.  If you feed it
+strange data, strange things will happen.
+
+There's no filtering or escaping.  For the love of ghod don't use 
+this code for anything remotely security-sensitive.
+
+Finally, there's no rate throttling.  If you give it a huge number of
+tweets to fetch, it will hammer twitter just as fast as it possibly
+can, which might make the nice folks at twitter very upset with you. 
+
+I'm happy to address all of these if people find this code useful. 
+
+
+NOTES
+
+I scraped the rudiments of this together in a few hours despite never
+having worked with the Twitter API before.  I think this says a great
+deal about the utility of REST APIs in general, the utility of the 
+Twitter API in particular, and the overarching awesomeness of CPAN.
+
+
+LICENSE
+
+Released under the same license as Perl: namely, either the Artistic
+License, or the GPL, at your option.
+
+
+AUTHOR
+
+Rick Scott <rick@shadowspar.dyndns.org>
