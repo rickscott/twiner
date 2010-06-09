@@ -125,7 +125,7 @@ sub format_tweet {
     <strong>%s</strong>: %s 
     <br />
     <a href="%s">
-    <span style="font-size: 75%;">%s</span> 
+    <span style="font-size: 75%%;">%s</span> 
     </a>
   </li>
 
